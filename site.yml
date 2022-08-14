@@ -4,10 +4,29 @@
   become: true
   pre_tasks:
 
-  - name: update repo cache (Ubuntu)
+  - name: update repository index (Ubuntu)
     tags: always
     apt:
       update_cache: yes
     changed_when: false
     when: ansible_distribytion == "Ubuntu"
 
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: workstations
+  become: true
+  roles:
+    - workstations
+
+- hosts: web_servers
+  become: true
+  roles:
+    -workstations
+
+- hosts: db_servers
+  become: true
+  roles:
+    - db_servers

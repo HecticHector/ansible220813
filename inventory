@@ -1,2 +1,11 @@
+[web_servers]
 192.168.122.102
+
+[file_servers]
 192.168.122.103
+
+[file_servers]
+192.168.122.101
+
+[workstation]
+192.168.122.100
